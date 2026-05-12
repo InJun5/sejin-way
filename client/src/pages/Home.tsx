@@ -87,7 +87,7 @@ export default function Home() {
   const [activeProcess, setActiveProcess] = useState(waterProcesses[0]);
 
   return (
-    <div className="min-h-screen" style={{ background: "oklch(0.99 0.002 240)" }}>
+    <div id="screoll-root" className="min-h-screen" style={{ background: "oklch(0.99 0.002 240)" }}>
       <Navigation />
 
       {/* ── Hero Section ── */}

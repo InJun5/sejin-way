@@ -10,10 +10,10 @@ import { waterProcesses } from "@/lib/waterProcessData";
 import { toast } from "sonner";
 
 const contactInfo = [
-  { icon: Phone, label: "전화", value: "02-0000-0000", href: "tel:+82-2-0000-0000" },
-  { icon: Mail, label: "이메일", value: "info@sejin-water.com", href: "mailto:info@sejin-water.com" },
-  { icon: MapPin, label: "주소", value: "서울특별시 (주소 추가 예정)", href: "#" },
-  { icon: Clock, label: "업무 시간", value: "평일 09:00 - 18:00", href: "#" },
+  { icon: Phone, label: "전화", value: "032-0000-0000", href: "tel:+82-2-0000-0000" },
+  { icon: Mail, label: "이메일", value: "hisstars2@sejin-way.com", href: "mailto:info@sejin-water.com" },
+  { icon: MapPin, label: "주소", value: "인천광역시 남둥구 청능대로484번길 20", href: "#" },
+  { icon: Clock, label: "업무 시간", value: "평일 08:30 - 17:30", href: "#" },
 ];
 
 const inquiryTypes = [
@@ -52,7 +52,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: "oklch(0.99 0.002 240)" }}>
+    <div id="screoll-root" className="min-h-screen" style={{ background: "oklch(0.99 0.002 240)" }}>
       <Navigation />
 
       {/* Hero */}

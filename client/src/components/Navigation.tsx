@@ -53,44 +53,74 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         scrolled || !isHome
           ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100"
-          : "bg-transparent"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105"
-              style={{ background: "oklch(0.35 0.12 240)" }}
-            >
-              <Droplets className="w-5 h-5 text-white" />
+
+
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 group"
+            onClick={() => {
+
+
+              // 페이지 전환 시 스크롤 초기화
+              const scrollTarget = document.getElementById("manus-previewer-root");
+              if (scrollTarget) {
+                scrollTarget.scrollTop = 0;
+              }
+              window.scrollTo(0, 0);
+              document.documentElement.scrollTo(0, 0);
+              document.body.scrollTo(0, 0);
+            }}
+          >
+            {/* 메인화면 우측상단 로고 이미지들 (기존 코드 유지) */}
+            <div className="relative w-56 h-16 overflow-hidden transition-transform group-hover:scale-105">
+              <img
+                src="/__manus__/sejin_logo_text.png"
+                alt="Company Logo Dark"
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
+                  scrolled || !isHome ? "opacity-100" : "opacity-0"
+                }`}
+              />
+              <img
+                src="/__manus__/sejin_logo_text_white.png"
+                alt="Company Logo Light"
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
+                  scrolled || !isHome ? "opacity-0" : "opacity-100"
+                }`}
+              />
             </div>
-            <div className="flex flex-col leading-none">
-              <span
-                className="font-bold text-xl tracking-tight"
-                style={{
-                  fontFamily: "'Outfit', sans-serif",
-                  color: scrolled || !isHome ? "oklch(0.18 0.04 240)" : "white",
-                }}
-              >
-                SEJIN
-              </span>
-              <span
-                className="text-[10px] tracking-widest font-medium"
-                style={{
-                  color: scrolled || !isHome ? "oklch(0.55 0.14 185)" : "oklch(0.85 0.05 185)",
-                }}
-              >
-                수처리 분석기술
-              </span>
-            </div>
+
+            {/* 메인화면 우측상단 회사명 텍스트*/}
+                        {/* <div className="flex flex-col leading-none">
+                          <span
+                            className="font-bold text-4xl tracking-tight"
+                            style={{
+                              fontFamily: "'Outfit', sans-serif",
+                              color: scrolled || !isHome ? "oklch(0.18 0.04 240)" : "white",
+                            }}
+                          >
+                            SEJIN
+                          </span>
+                          <span
+                            className="text-[15px] tracking-widest font-medium"
+                            style={{
+                              color: scrolled || !isHome ? "oklch(0.55 0.14 185)" : "oklch(0.85 0.05 185)",
+                            }}
+                          >
+                            수처리 분석기술
+                          </span>
+                        </div> */}
           </Link>
 
-          {/* Desktop Nav */}
+          {/* 상단 네비게이션 설정 */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <div
@@ -101,7 +131,7 @@ export default function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-500 ease-in-out ${
                     scrolled || !isHome
                       ? "text-slate-700 hover:text-blue-700 hover:bg-blue-50"
                       : "text-white/90 hover:text-white hover:bg-white/10"

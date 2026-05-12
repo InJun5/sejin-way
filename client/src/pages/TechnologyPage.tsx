@@ -16,7 +16,7 @@ export default function TechnologyPage() {
 
   if (!tech) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div id="screoll-root" className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4">기술 정보를 찾을 수 없습니다</h2>
           <Link href="/" className="text-blue-600 hover:underline">홈으로 돌아가기</Link>
@@ -30,7 +30,7 @@ export default function TechnologyPage() {
     .filter(Boolean);
 
   return (
-    <div className="min-h-screen" style={{ background: "oklch(0.99 0.002 240)" }}>
+    <div id="screoll-root" className="min-h-screen" style={{ background: "oklch(0.99 0.002 240)" }}>
       <Navigation />
 
       {/* Hero */}
