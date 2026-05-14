@@ -44,9 +44,9 @@ export default function ProcessDiagram({ process }: ProcessDiagramProps) {
         {/* SVG Diagram */}
         <div className="relative overflow-x-auto">
           <svg
-            viewBox="0 0 100 100"
+            viewBox="20 20 60 60"
             className="w-full"
-            style={{ minWidth: "600px", height: "260px" }}
+            style={{ minWidth: "1000px", height: "400px" }}
             preserveAspectRatio="xMidYMid meet"
           >
             {/* Background grid lines */}

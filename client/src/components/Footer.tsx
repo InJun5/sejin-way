@@ -13,20 +13,21 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
-              <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center"
-                style={{ background: "oklch(0.55 0.14 185)" }}
-              >
-                <Droplets className="w-5 h-5 text-white" />
+              <div className="flex items-center justify-center">
+                <img
+                  src="/__manus__/sejin_logo_text_white.png"
+                  alt="세진 수질 로고"
+                  className="h-15 w-auto object-contain"
+                />
               </div>
-              <div>
+              {/* <div>
                 <div className="font-bold text-xl" style={{ fontFamily: "'Outfit', sans-serif" }}>
                   SEJIN
                 </div>
                 <div className="text-[10px] tracking-widest" style={{ color: "oklch(0.55 0.14 185)" }}>
                   수처리 분석기술
                 </div>
-              </div>
+              </div> */}
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "oklch(0.65 0.03 240)" }}>
               초순수부터 재이용수까지, 수처리 전 공정에 걸친 정밀 수질측정 기술과 솔루션을 제공합니다.
@@ -41,7 +42,7 @@ export default function Footer() {
                 02-0000-0000
               </a>
               <a
-                href="mailto:info@sejin-water.com"
+                href="mailto:info@sejin-way.com"
                 className="flex items-center gap-2.5 text-sm transition-colors hover:text-white"
                 style={{ color: "oklch(0.65 0.03 240)" }}
               >
@@ -53,7 +54,7 @@ export default function Footer() {
                 style={{ color: "oklch(0.65 0.03 240)" }}
               >
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "oklch(0.55 0.14 185)" }} />
-                서울특별시 (주소 추가 예정)
+                인천광역시 남동구 청능대로484번길 20
               </div>
             </div>
           </div>
