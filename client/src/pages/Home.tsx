@@ -95,7 +95,10 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={HERO_IMAGE}
+             src={HERO_IMAGE}
+/*
+            src="/__manus__/hero_image3.jpg"
+ */
             alt="수처리 시설"
             className="w-full h-full object-cover"
           />
@@ -109,7 +112,7 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl ml-0 md:ml-8 lg:-ml-100">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mb-6"
               style={{ background: "oklch(0.55 0.14 185 / 0.2)", color: "oklch(0.85 0.1 185)", border: "1px solid oklch(0.55 0.14 185 / 0.3)" }}>
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "oklch(0.75 0.15 185)" }} />
@@ -117,7 +120,7 @@ export default function Home() {
             </div>
 
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6"
+              className="text-5xl md:text-6xl lg:text-5xl font-extrabold text-white leading-tight mb-6"
               style={{ fontFamily: "'Outfit', sans-serif" }}
             >
               정밀한 수질 측정,
@@ -289,7 +292,7 @@ export default function Home() {
               </p>
             </div>
             <div className="overflow-x-auto p-4">
-              <svg viewBox="0 0 100 60" style={{ minWidth: "600px", height: "160px" }} preserveAspectRatio="xMidYMid meet">
+              <svg viewBox="10 0 40 60" style={{ minWidth: "1000px", height: "300px" }} preserveAspectRatio="xMidYMid meet">
                 {/* Flow lines */}
                 {activeProcess.steps.map((step, i) => {
                   if (i === activeProcess.steps.length - 1) return null;

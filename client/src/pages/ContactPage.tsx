@@ -8,10 +8,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { waterProcesses } from "@/lib/waterProcessData";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   { icon: Phone, label: "전화", value: "032-0000-0000", href: "tel:+82-2-0000-0000" },
-  { icon: Mail, label: "이메일", value: "hisstars2@sejin-way.com", href: "mailto:info@sejin-water.com" },
+  { icon: Mail, label: "이메일", value: "info@sejin-way.com", href: "mailto:info@sejin-water.com" },
   { icon: MapPin, label: "주소", value: "인천광역시 남둥구 청능대로484번길 20", href: "#" },
   { icon: Clock, label: "업무 시간", value: "평일 08:30 - 17:30", href: "#" },
 ];
@@ -42,9 +43,28 @@ export default function ContactPage() {
       toast.error("필수 항목을 입력해주세요.");
       return;
     }
-    // Simulate form submission
-    setSubmitted(true);
-    toast.success("문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.");
+    const loadingToast = toast.loading("문의를 전송하는 중입니다...");
+
+    const serviceID = 'service_hvnt3iv';
+    const templateID = 'template_rq3x4qb';
+    const publicKey = 'xEKREiOKp6_kjNxBn';
+
+
+    emailjs.send(serviceID, templateID, formData as any, publicKey)
+      .then(() => {
+        // 전송 성공 시
+        toast.dismiss(loadingToast);
+        toast.success("문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.");
+
+        setSubmitted(true); // 성공 화면으로 전환
+        setFormData({ name: "", email: "", message: "", category: "general" }); // 폼 초기화
+      })
+      .catch((error) => {
+        // 전송 실패 시
+        console.error("EmailJS Error:", error);
+        toast.dismiss(loadingToast);
+        toast.error("전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
