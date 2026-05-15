@@ -39,7 +39,9 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("제출 버튼 클릭됨");
     if (!formData.name || !formData.email || !formData.message) {
+      console.log("필수입력 누락");
       toast.error("필수 항목을 입력해주세요.");
       return;
     }
