@@ -43,9 +43,9 @@ export default function ContactPage() {
     // 1. 디버깅용 로그: 버튼을 눌렀을 때 콘솔에 이 문구가 뜨는지 확인하세요!
     console.log("제출 시도 중...", formData);
 
-    const serviceID = 'YOUR_SERVICE_ID';
-    const templateID = 'YOUR_TEMPLATE_ID';
-    const publicKey = 'YOUR_PUBLIC_KEY';
+    const serviceID = 'service_hvnt3iv';
+    const templateID = 'template_rq3x4qb';
+    const publicKey = 'xEKREiOKp6_kjNxBn';
 
     const loadingToast = toast.loading("문의를 전송 중입니다...");
 
