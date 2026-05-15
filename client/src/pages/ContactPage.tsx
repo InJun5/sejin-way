@@ -39,33 +39,28 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("제출 버튼 클릭됨");
-    if (!formData.name || !formData.email || !formData.message) {
-      console.log("필수입력 누락");
-      toast.error("필수 항목을 입력해주세요.");
-      return;
-    }
-    const loadingToast = toast.loading("문의를 전송하는 중입니다...");
 
-    const serviceID = 'service_hvnt3iv';
-    const templateID = 'template_rq3x4qb';
-    const publicKey = 'xEKREiOKp6_kjNxBn';
+    // 1. 디버깅용 로그: 버튼을 눌렀을 때 콘솔에 이 문구가 뜨는지 확인하세요!
+    console.log("제출 시도 중...", formData);
 
+    const serviceID = 'YOUR_SERVICE_ID';
+    const templateID = 'YOUR_TEMPLATE_ID';
+    const publicKey = 'YOUR_PUBLIC_KEY';
+
+    const loadingToast = toast.loading("문의를 전송 중입니다...");
 
     emailjs.send(serviceID, templateID, formData as any, publicKey)
-      .then(() => {
-        // 전송 성공 시
+      .then((res) => {
+        console.log("전송 성공!", res.status, res.text);
         toast.dismiss(loadingToast);
-        toast.success("문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.");
-
-        setSubmitted(true); // 성공 화면으로 전환
-        setFormData({ name: "", email: "", message: "", category: "general" }); // 폼 초기화
+        toast.success("문의가 성공적으로 접수되었습니다.");
+        setSubmitted(true);
       })
-      .catch((error) => {
-        // 전송 실패 시
-        console.error("EmailJS Error:", error);
+      .catch((err) => {
+        // 2. 에러가 난다면 여기에 이유가 찍힙니다.
+        console.error("전송 에러 발생:", err);
         toast.dismiss(loadingToast);
-        toast.error("전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
+        toast.error("전송 실패. 콘솔 로그를 확인해주세요.");
       });
   };
 
