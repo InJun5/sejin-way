@@ -43,6 +43,7 @@ export default function ContactPage() {
     // 1. 디버깅용 로그: 버튼을 눌렀을 때 콘솔에 이 문구가 뜨는지 확인하세요!
     console.log("제출 시도 중...", formData);
 
+
     const serviceID = 'service_hvnt3iv';
     const templateID = 'template_rq3x4qb';
     const publicKey = 'xEKREiOKp6_kjNxBn';
